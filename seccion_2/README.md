@@ -155,3 +155,9 @@ mariadb:jammy
 
 >[!TIP]
 > Si usas linux o git bash puedes usar el comando `docker container logs <container_id> | grep "GENERATED ROOT PASSWORD"` para filtrar la línea que contiene la contraseña generada para el usuario root de mariadb.
+
+---
+
+## Tarea - Borrar todas las imágenes de Postgres
+- Usamos el comando `docker image ls` para listar todas las imágenes que tenemos descargadas en nuestra máquina local.
+- Usamos el comando `docker image rm <image_id>` para eliminar una imagen, donde `<image_id>` es el identificador de la imagen que queremos eliminar.
