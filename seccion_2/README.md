@@ -80,3 +80,17 @@
 - Antes de eliminar la imagen debemos eliminar todos los contenedores que se hayan creado a partir de esa imagen
 - Podemos ir al listado de contenedores, seleccionar los contenedores que queremos eliminar y hacer click en el botón de "remove".
 - Lo mismo para eliminar la imagen, seleccionamos la imagen que queremos eliminar y hacemos click en el botón de "remove".
+
+---
+
+## Publish and Detached modes
+- Abrir navegador con `localhost` deberiamos ver un error ya que no hay ningún servicio corriendo
+- Ejecutamos el comando `docker container run docker/getting-started`
+- Abrimos el navegador con `localhost` la página sigue sin cargar
+- Ejecutamos el comando `docker container run -d -p 80:80 docker/getting-started`
+   - `-d` indica que el contenedor se ejecutará en modo "detached", es decir, en segundo plano.
+   - `-p 80:80` indica que el puerto 80 del contenedor se mapeará al puerto 80 de nuestra máquina local
+   - `80:80` el primer 80 es el puerto de nuestra máquina local y el segundo 80 es el puerto del contenedor
+- Para detener la imagen ejecutamos el comando `docker container stop <container_id>`, donde `<container_id>` es el identificador del contenedor que queremos detener.
+- `docker container start <container_id>`: Nos permite iniciar un contenedor que ya ha sido detenido.
+- `docker container rm -f <container_id>`: Nos permite eliminar un contenedor que no ha sido detenido, el flag `-f` indica que queremos forzar la eliminación del contenedor.
