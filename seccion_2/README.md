@@ -58,3 +58,15 @@
 - `Docker Hub` es un repositorio de imágenes de Docker, donde podemos encontrar imágenes oficiales y de terceros para descargar y usar en nuestros proyectos.
 - Se recomienda usar imágenes oficiales, ya que son mantenidas por los desarrolladores de la tecnología y son más seguras y confiables.
 - Si ejecutamos el comando `docker container run hello-world` nuevamente, no descarga nada pero crea un nuevo contenedor a partir de la imagen descargada, esto toma más espacio en disco, por lo que es recomendable eliminar los contenedores que ya no necesitamos.
+
+---
+
+## Borrar contenedores e imágenes
+- `docker container --help `: Nos muestra todos los comandos disponibles para manejar contenedores.
+- `docker container ls`: Nos muestra todos los contenedores que están corriendo actualmente.
+- `docker container ls -a`: Nos muestra todos los contenedores, incluyendo los que ya no están corriendo.
+- `docker container rm <container_id>`: Nos permite eliminar un contenedor, donde `<container_id>` es el identificador del contenedor que queremos eliminar.
+- `docker container prune`: Nos permite eliminar todos los contenedores que ya no están corriendo.
+- `docker image --help`: Nos muestra todos los comandos disponibles para manejar imágenes.
+- `docker image ls`: Nos muestra todas las imágenes que tenemos descargadas en nuestra máquina local.
+- `docker image rm <image_id>`: Nos permite eliminar una imagen, donde `<image_id>` es el identificador de la imagen que queremos eliminar.
