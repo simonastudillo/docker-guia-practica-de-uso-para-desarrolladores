@@ -70,3 +70,13 @@
 - `docker image --help`: Nos muestra todos los comandos disponibles para manejar imágenes.
 - `docker image ls`: Nos muestra todas las imágenes que tenemos descargadas en nuestra máquina local.
 - `docker image rm <image_id>`: Nos permite eliminar una imagen, donde `<image_id>` es el identificador de la imagen que queremos eliminar.
+
+---
+
+## Docker Desktop - Mismos comandos ejecutados
+- Desde el Docker Desktop podemos ejecutar los mismos comandos que ejecutamos en la terminal, pero de manera visual.
+- Buscamos la imagen en el buscador de imágenes, hacemos click en el botón de "pull" y esperamos a que se descargue la imagen.
+- Si presionamos la imagen nos muestra los comandos utilizados para ejecutar la imagen, como `docker container run hello-world`.
+- Antes de eliminar la imagen debemos eliminar todos los contenedores que se hayan creado a partir de esa imagen
+- Podemos ir al listado de contenedores, seleccionar los contenedores que queremos eliminar y hacer click en el botón de "remove".
+- Lo mismo para eliminar la imagen, seleccionamos la imagen que queremos eliminar y hacemos click en el botón de "remove".
