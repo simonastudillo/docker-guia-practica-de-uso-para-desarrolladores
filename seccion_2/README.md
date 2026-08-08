@@ -132,3 +132,26 @@ postgres:14-alpine3.17
 ```
 >[!WARNING]
 > No cambies el puerto del contenedor, ya que Postgres solo escucha en el puerto 5432, si cambias el puerto del contenedor, no podrás conectarte a la base de datos.
+
+---
+
+## Logs del contenedor
+- `docker container logs <container_id>`: Nos permite ver los logs de un contenedor, donde `<container_id>` es el identificador del contenedor que queremos ver los logs.
+- `docker container logs -f <container_id>`: Nos permite ver los logs de un contenedor en tiempo real, donde `<container_id>` es el identificador del contenedor que queremos ver los logs.
+- Descargaremos la imagen de `mariadb:jammy` y ejecutaremos el contenedor con el comando:
+```bash
+docker pull mariadb:jammy
+```
+- Creamos el contenedor con el comando:
+```bash
+docker container run \
+-e MARIADB_RANDOM_ROOT_PASSWORD=yes \
+-dp 3306:3306 \
+mariadb:jammy
+```
+- Obtenemos el `container_id` del contenedor de mariadb con el comando `docker container ls`
+- Luego obtenemos la contraseña del root user con el comando `docker container logs <container_id>`, donde `<container_id>` es el identificador del contenedor de mariadb.
+- Buscamos la línea que dice `GENERATED ROOT PASSWORD: <password>`, donde `<password>` es la contraseña generada para el usuario root de mariadb.
+
+>[!TIP]
+> Si usas linux o git bash puedes usar el comando `docker container logs <container_id> | grep "GENERATED ROOT PASSWORD"` para filtrar la línea que contiene la contraseña generada para el usuario root de mariadb.
