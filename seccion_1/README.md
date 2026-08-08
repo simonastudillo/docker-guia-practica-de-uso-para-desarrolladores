@@ -36,3 +36,14 @@
 12. [Aura themes - Extensión para VS code](https://marketplace.visualstudio.com/items?itemName=DaltonMenezes.aura-theme) - Para tener un tema oscuro en VS code
 13. [Material Icon Theme - Extensión para VS code](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) - Para tener íconos en VS code
 14. [Wallpaper Developer](https://drive.google.com/drive/folders/1ItU8rbSGJjnh2USOBGwaCo9nYKifPJ6m?usp=sharing) - Para tener un fondo de pantalla de desarrollador
+
+---
+
+## Instalación Docker - Linux Ubuntu
+- Leer guía oficial de instalación de Docker en Linux Ubuntu: [https://docs.docker.com/desktop/install/linux-install/](https://docs.docker.com/desktop/install/linux-install/)
+- Se debe de realizar una limpieza de una posible instalación previa de Docker
+- Ejecutar los comandos indicados en la terminal para instalar Docker Desktop en Linux Ubuntu
+- Para probar que docker está instalado correctamente, ejecutar el comando
+```bash
+docker container run hello-world
+``` 
