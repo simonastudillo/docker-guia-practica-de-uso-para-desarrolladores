@@ -6,3 +6,7 @@
 - Seguir buenas prácticas
 - Seguir la documentación
 - Imagenes de múltiples arquitecturas
+
+---
+
+## 
