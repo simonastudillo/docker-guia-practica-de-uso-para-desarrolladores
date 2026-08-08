@@ -58,3 +58,4 @@ docker container run hello-world
 ```bash
 docker container run hello-world
 ```
+- Revisar sección de "Linux post install" para poder ejecutar docker sin necesidad de usar sudo
