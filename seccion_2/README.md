@@ -111,3 +111,24 @@
 - Por defecto Postgres no permite conexiones externas, por lo que debemos mapear el puerto 5432 del contenedor al puerto 5432 de nuestra máquina local con el flag `-p 5432:5432`.
 - `docker run --name some-postgres -dp 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword postgres`: Ahora asignamos el puerto 5432 del contenedor al puerto 5432 de nuestra máquina local, por lo que podemos conectarnos a la base de datos desde nuestra máquina local.
 
+---
+
+## Multiples instancias de Postgres
+- Para ejecutar un comando en la terminal usando múltiples lineas usamos el caracter `\` al final de cada linea, excepto en la última linea.
+```bash
+docker container run \
+--name postgres-alpha \
+-e POSTGRES_PASSWORD=mysecretpassword \
+-dp 5432:5432 \
+postgres
+```
+- Usaremos una versión más antigua de postgres para crear una segunda instancia de postgres:
+```bash
+docker container run \
+--name postgres-beta \
+-e POSTGRES_PASSWORD=mysecretpassword \
+-dp 5433:5432 \
+postgres:14-alpine3.17
+```
+>[!WARNING]
+> No cambies el puerto del contenedor, ya que Postgres solo escucha en el puerto 5432, si cambias el puerto del contenedor, no podrás conectarte a la base de datos.
