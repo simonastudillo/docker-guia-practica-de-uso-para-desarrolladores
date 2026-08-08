@@ -9,4 +9,6 @@
 
 ---
 
-## 
+## ¿Cómo funcionará el curso?
+- Realizar el curso en orden
+- Realizar los ejercicios propuestos
