@@ -12,3 +12,9 @@
 ## ¿Cómo funcionará el curso?
 - Realizar el curso en orden
 - Realizar los ejercicios propuestos
+
+---
+
+## ¿Cómo hacer preguntas?
+- Hacer click en discusiones, verificar si la pregunta ya fue realizada, si no, crear un nuevo tema y hacer la pregunta.
+- Crear título específico
