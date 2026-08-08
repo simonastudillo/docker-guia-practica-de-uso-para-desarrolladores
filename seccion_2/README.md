@@ -94,3 +94,13 @@
 - Para detener la imagen ejecutamos el comando `docker container stop <container_id>`, donde `<container_id>` es el identificador del contenedor que queremos detener.
 - `docker container start <container_id>`: Nos permite iniciar un contenedor que ya ha sido detenido.
 - `docker container rm -f <container_id>`: Nos permite eliminar un contenedor que no ha sido detenido, el flag `-f` indica que queremos forzar la eliminación del contenedor.
+
+---
+
+## Variables de entorno
+- Descargamos la imagen de postgres con el comando `docker pull postgres`
+- En la documentación de [postgres](https://hub.docker.com/_/postgres) nos indican las variables de entorno que podemos usar para configurar la base de datos, como `POSTGRES_PASSWORD`, `POSTGRES_USER` y `POSTGRES_DB`.
+- `docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres`
+   - `--name some-postgres` indica el nombre del contenedor que estamos creando, en este caso `some-postgres`.
+   - `-e POSTGRES_PASSWORD=mysecretpassword` indica la variable de entorno `POSTGRES_PASSWORD` con el valor `mysecretpassword`.
+   - `-d` indica que el contenedor se ejecutará en modo "detached", es decir, en segundo plano.
