@@ -47,3 +47,14 @@
 ```bash
 docker container run hello-world
 ``` 
+
+---
+
+## Instalación Docker - Linux manual
+- Leer guía oficial de instalación de Docker en Linux: [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/)
+- Se debe de realizar una limpieza de una posible instalación previa de Docker
+- Ejecutar los comandos indicados en la terminal para instalar Docker Engine en Linux
+- Para probar que docker está instalado correctamente, ejecutar el comando
+```bash
+docker container run hello-world
+```
