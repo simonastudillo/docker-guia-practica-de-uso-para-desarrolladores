@@ -42,4 +42,19 @@
    - Para desplegar esa imagen al servidor, el servidor hace un pull de la imagen y la ejecuta en un contenedor
    - Es muy sencillo cambiar de versión de la aplicación
    - Incluso si no utilizamos un servidor docker, nos sirve para mantener un entorno de desarrollo consistente entre todos los desarrolladores del proyecto
-   
+
+---
+
+## Hola Mundo en Docker
+- Comando `docker pull`: Nos permite descargar una imagen de Docker desde un repositorio de imágenes de Docker.
+- Una `imagen` es un archivo construido por capas, que contiene todo lo necesario para ejecutar una aplicación, incluyendo el código fuente, las dependencias, las herramientas y las configuraciones necesarias.
+- Al ejecutar el comando `docker pull hello-world`
+   - Docker indica `docker.io/library/hello-world:latest`, esto indica que es la última imagen que se encuentra en el repositorio oficial de Docker Hub.
+   - Indica que está descargando la imagen y genera un hash de la imagen descargada, que es un identificador único de la imagen.
+- Para ejecutar la imagen ejecutamos `docker container run hello-world`
+   - Indica que el `docker daemon` está corriendo: Esto significa que el servicio de Docker está corriendo en nuestra máquina local y está listo para recibir comandos.
+- `Container` es una instancia de una imagen, es decir, es un proceso que se está ejecutando en nuestra máquina local y que está aislado del resto de procesos.
+- Si volvemos a ejecutar el comando `docker pull hello-world`, nos indica que la imagen ya está descargada y no necesita descargarla nuevamente.
+- `Docker Hub` es un repositorio de imágenes de Docker, donde podemos encontrar imágenes oficiales y de terceros para descargar y usar en nuestros proyectos.
+- Se recomienda usar imágenes oficiales, ya que son mantenidas por los desarrolladores de la tecnología y son más seguras y confiables.
+- Si ejecutamos el comando `docker container run hello-world` nuevamente, no descarga nada pero crea un nuevo contenedor a partir de la imagen descargada, esto toma más espacio en disco, por lo que es recomendable eliminar los contenedores que ya no necesitamos.
