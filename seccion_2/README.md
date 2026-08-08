@@ -104,3 +104,10 @@
    - `--name some-postgres` indica el nombre del contenedor que estamos creando, en este caso `some-postgres`.
    - `-e POSTGRES_PASSWORD=mysecretpassword` indica la variable de entorno `POSTGRES_PASSWORD` con el valor `mysecretpassword`.
    - `-d` indica que el contenedor se ejecutará en modo "detached", es decir, en segundo plano.
+
+---
+
+## Usar la imagen de Postgres
+- Por defecto Postgres no permite conexiones externas, por lo que debemos mapear el puerto 5432 del contenedor al puerto 5432 de nuestra máquina local con el flag `-p 5432:5432`.
+- `docker run --name some-postgres -dp 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword postgres`: Ahora asignamos el puerto 5432 del contenedor al puerto 5432 de nuestra máquina local, por lo que podemos conectarnos a la base de datos desde nuestra máquina local.
+
