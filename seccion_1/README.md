@@ -59,3 +59,14 @@ docker container run hello-world
 docker container run hello-world
 ```
 - Revisar sección de "Linux post install" para poder ejecutar docker sin necesidad de usar sudo
+
+---
+
+## Guía de atajos para el curso
+- [Guía de atajos de docker](./docker-cheat-sheet.pdf) - Para tener a la mano los comandos más usados de docker
+- No es necesario memorizar todos los comandos, pero sí tenerlos a la mano para poder consultarlos cuando sea necesario.
+- Hay 2 formas de llamar los comandos de docker:
+```bash
+docker container run ...
+docker run ...
+```
