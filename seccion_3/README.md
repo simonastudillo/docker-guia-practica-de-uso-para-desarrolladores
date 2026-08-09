@@ -200,6 +200,7 @@ MSYS_NO_PATHCONV=1 docker container exec -it <nombre_del_contenedor> /bin/sh
 ```
 - Podemos usar los mismos comandos que usaríamos en una terminal normal, como `ls`, `cd`, `cat`, etc.
 - Para editar un archivo dentro del contenedor, podemos usar el comando `vi <nombre_del_archivo>`, aunque no es tan cómodo como usar un editor de texto en nuestro equipo.
+- Para salir de la terminal interactiva, usamos el comando `exit` o presionamos `Ctrl + D`.
 
 >[!TIP] Debido a problemas conocidos de Docker con Windows para notificar sobre la modifación de archivos, se recomienda añadir las siguientes lineas al archivo de tsconfig.json
 ```json
@@ -208,3 +209,8 @@ MSYS_NO_PATHCONV=1 docker container exec -it <nombre_del_contenedor> /bin/sh
    "interval": 1000
 }
 ```
+
+--- 
+
+## Limpieza de lo realizado en esta sección
+- Si bien no hay problemas en dejar los contenedores corriendo, es recomendable limpiar contenedores e imagenes que no se estén usando para liberar recursos de nuestro equipo
