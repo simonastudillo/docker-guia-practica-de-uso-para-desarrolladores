@@ -147,3 +147,25 @@ phpmyadmin:5.2-apache
 - Tambien es posible entrar a la terminal interactiva del contenedor
 - Desde el contenedor haremos un pnpm install, esto se verá reflejado en nuestro equipo
 - El problema de esto es que no es tan rápido como hacerlo localmente, además de usar más recursos de nuestro equipo.
+
+---
+
+## Ejercicio - Bind Volumes
+- Bajamos el [repositorio](https://import.cdn.thinkific.com/643563/courses/2100309/nestgraphqlapp-221207-123302.zip) con un proyecto de NestJS y GraphQL
+- Descomprimimos el proyecto y nos ubicamos en la carpeta del proyecto
+- Usaremos una imagen de NodeJS en la versión `18.20.8-alpine3.21` para crear un contenedor con el proyecto
+```bash
+MSYS_NO_PATHCONV=1 docker container run \
+--name nest-app \
+-w /app \
+-p 3000:3000 \
+-v "$(pwd)":/app \
+node:18.20.8-alpine3.21 \
+sh -c "yarn install && yarn start:dev"
+```
+- El comando `-w` nos permite definir el directorio de trabajo dentro del contenedor, en este caso `/app`
+- Para GitBash en Windows, debemos usar `//app` en lugar de `/app` para definir el directorio de trabajo
+- El comando `-v` nos permite mapear un directorio de nuestro equipo a un directorio del contenedor, en este caso estamos mapeando el directorio actual de nuestro equipo (usando `$(pwd)`) al directorio `/app` del contenedor
+- El comando `sh -c` nos permite ejecutar múltiples comandos dentro del contenedor, en este caso estamos ejecutando `yarn install` para instalar las dependencias y luego `yarn start:dev` para iniciar el servidor de desarrollo
+
+>[!INFO] Nota: Si estás usando Windows, es posible que debas usar `MSYS_NO_PATHCONV=1` antes del comando `docker container run` para evitar problemas con la conversión de rutas generadas por GitBash.
