@@ -169,3 +169,18 @@ sh -c "yarn install && yarn start:dev"
 - El comando `sh -c` nos permite ejecutar múltiples comandos dentro del contenedor, en este caso estamos ejecutando `yarn install` para instalar las dependencias y luego `yarn start:dev` para iniciar el servidor de desarrollo
 
 >[!INFO] Nota: Si estás usando Windows, es posible que debas usar `MSYS_NO_PATHCONV=1` antes del comando `docker container run` para evitar problemas con la conversión de rutas generadas por GitBash.
+
+---
+
+## Probar el enlace de directorios
+- Volvemos a ejecutar el comando para crear el contenedor, ahora será más rápido ya que las dependencias ya están instaladas
+```bash
+MSYS_NO_PATHCONV=1 docker container run \
+--name nest-app \
+-w /app \
+-dp 3000:3000 \
+-v "$(pwd)":/app \
+node:18.20.8-alpine3.21 \
+sh -c "yarn install && yarn start:dev"
+```
+- Ahora podemos modificar el código del proyecto en nuestro equipo y ver los cambios reflejados en el contenedor, ya que estamos usando un bind volume para mapear el directorio del proyecto a un directorio del contenedor.
