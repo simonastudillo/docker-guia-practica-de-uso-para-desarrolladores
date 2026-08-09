@@ -41,3 +41,33 @@ docker container run \
 --name world-db \
 mariadb:jammy
 ```
+
+---
+
+## Tipos de volúmenes
+- Hay 3 tipos de volúmenes
+   - Named Volumes: Nosotros le damos un nombre al volumen y podemos referenciarlo luego
+   - Bind Volumes: Se mapea un directorio de nuestro equipo a un directorio del contenedor, podemos referenciarlo luego
+   - Anonymous Volumes: Docker asigna un nombre aleatorio al volumen, no es recomendable usarlo ya que no podemos referenciarlo luego
+- Comandos:
+   - `docker volume create <nombre_del_volumen>`: Crea un volumen con el nombre especificado
+   - `docker volume ls`: Lista todos los volúmenes creados
+   - `docker volume inspect <nombre_del_volumen>`: Muestra información del volumen especificado
+   - `docker volume rm <nombre_del_volumen>`: Elimina el volumen especificado
+   - `docker volume prune`: Elimina todos los volúmenes no utilizados
+   - `docker container run -v <nombre_del_volumen>:<directorio_del_contenedor> <imagen>`: Monta el volumen en el contenedor
+- `docker create world-db`: Crear una "carpeta" en el computador para guardar la información, esto resiste aunque borremos el contenedor, reinicios del computador, etc.
+- Para utilizar el volumen creado lo podemos añadir al comando de creación del contenedor con la opción `--volume <nombre_del_volumen>:<ruta_del_contenedor>`, esto nos permite que la data que se guarde en el contenedor se guarde en el volumen y no se pierda aunque borremos el contenedor.
+- Busca en el docker hub oficial para ver donde guarda la data cada imagen, por ejemplo en MariaDB guarda la data en `/var/lib/mysql`, por lo que si queremos que la data se guarde en un volumen debemos mapear el volumen a ese directorio.
+```bash
+docker container run \
+-e MARIADB_USER=example-user \
+-e MARIADB_PASSWORD=user-password \
+-e MARIADB_ROOT_PASSWORD=root-secret-password \
+-e MARIADB_DATABASE=world-db \
+-dp 3306:3306 \
+--name world-db \
+--volume world-db:/var/lib/mysql \
+mariadb:jammy
+```
+- Ejecutamos nuevamente el [script](./seccion_3/tarea_1.sql) para crear las tablas e insertar la data, luego borramos el contenedor y creamos uno nuevo con el mismo volumen, al conectarnos a la base de datos veremos que la data sigue ahí.
