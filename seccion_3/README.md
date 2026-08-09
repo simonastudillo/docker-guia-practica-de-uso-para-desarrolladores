@@ -184,3 +184,27 @@ node:18.20.8-alpine3.21 \
 sh -c "yarn install && yarn start:dev"
 ```
 - Ahora podemos modificar el código del proyecto en nuestro equipo y ver los cambios reflejados en el contenedor, ya que estamos usando un bind volume para mapear el directorio del proyecto a un directorio del contenedor.
+- Para ejecutar desde PowerShell, ejecuta el comando de la siguiente forma
+```powershell
+docker container run --name nest-app -w /app -dp 3000:3000 -v "${PWD}:/app" node:18.20.8-alpine3.21 sh -c "yarn install && yarn start:dev"
+```
+- El directorio debe estar completo entre comillas dobles, y la ruta del directorio debe ser `${PWD}` en lugar de `$(pwd)`
+
+
+---
+
+## Terminal interactiva -it
+- Para entrar a la terminal interactiva de un contenedor, usamos el comando:
+```bash
+MSYS_NO_PATHCONV=1 docker container exec -it <nombre_del_contenedor> /bin/sh
+```
+- Podemos usar los mismos comandos que usaríamos en una terminal normal, como `ls`, `cd`, `cat`, etc.
+- Para editar un archivo dentro del contenedor, podemos usar el comando `vi <nombre_del_archivo>`, aunque no es tan cómodo como usar un editor de texto en nuestro equipo.
+
+>[!TIP] Debido a problemas conocidos de Docker con Windows para notificar sobre la modifación de archivos, se recomienda añadir las siguientes lineas al archivo de tsconfig.json
+```json
+"watchOptions": {
+   "watchFile": "dynamicPriorityPolling",
+   "interval": 1000
+}
+```

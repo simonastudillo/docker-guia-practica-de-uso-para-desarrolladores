@@ -9,9 +9,6 @@ export class TodoService {
    private todos: Todo[] = [
       { id: 1, description: 'Piedra del Alma', done: false },
       { id: 2, description: 'Piedra del Espacio', done: true },
-      { id: 3, description: 'Piedra del Poder', done: false },
-      { id: 4, description: 'Piedra del Tiempo', done: false },
-      { id: 5, description: 'Piedra de la Realidad.', done: true },
    ];
 
    get totalTodos() {
