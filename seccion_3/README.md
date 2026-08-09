@@ -112,3 +112,30 @@ docker network inspect world-app
 ```
 - Ahora nos conectamos a PHPMyAdmin desde el navegador usando la dirección `http://localhost:8080`
 - Para las credenciales de conexión, usamos el nombre del contenedor de MariaDB como servidor, en este caso `world-db`, y el usuario y contraseña que definimos al crear el contenedor de MariaDB.
+
+---
+
+## Asignar la red desde la inicialización
+- Podemos asignar la red a los contenedores desde el inicio usando el parámetro `--network <nombre_de_la_red>` al crear los contenedores
+```bash
+docker container run \
+-e MARIADB_USER=example-user \
+-e MARIADB_PASSWORD=user-password \
+-e MARIADB_ROOT_PASSWORD=root-secret-password \
+-e MARIADB_DATABASE=world-db \
+-dp 3306:3306 \
+--name world-db \
+--volume world-db:/var/lib/mysql \
+--network world-app \
+mariadb:jammy
+```
+```bash
+docker container run \
+--name phpmyadmin \
+-dp 8080:80 \
+-e PMA_ARBITRARY=1 \
+--network world-app \
+phpmyadmin:5.2-apache
+```
+- Más adelante veremos docker compose, que nos permite crear múltiples contenedores y redes de forma más sencilla y rápida.
+- Adicionalmente nos permite ver de manera visual los contenedores, redes y volúmenes que tenemos creados, así como sus relaciones.
