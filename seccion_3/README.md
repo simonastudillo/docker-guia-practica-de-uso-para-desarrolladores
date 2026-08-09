@@ -71,3 +71,20 @@ docker container run \
 mariadb:jammy
 ```
 - Ejecutamos nuevamente el [script](./seccion_3/tarea_1.sql) para crear las tablas e insertar la data, luego borramos el contenedor y creamos uno nuevo con el mismo volumen, al conectarnos a la base de datos veremos que la data sigue ahí.
+
+---
+
+## PHPMyAdmin
+- PHPMyAdmin es un servicio muy popular para administrar bases de datos MySQL y MariaDB de forma visual
+- Vamos a hub.docker.com y buscamos la imagen oficial de PHPMyAdmin, la cual es `phpmyadmin/phpmyadmin`
+- Usaremos la versión `5.2-apache` para que sea compatible con la versión de MariaDB que estamos usando
+- Aunque en documentaciones se haga referencia al parámetro `--link`, este está obsoleto y no se recomienda su uso, en su lugar usaremos redes para que los contenedores puedan comunicarse entre sí.
+```bash
+docker container run \
+--name phpmyadmin \
+-dp 8080:80 \
+-e PMA_ARBITRARY=1 \
+phpmyadmin:5.2-apache
+```
+- Solo si 2 contenedores están en la misma red, pueden comunicarse entre sí
+- Esto se hace usando el comando `network`
