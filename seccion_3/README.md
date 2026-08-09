@@ -139,3 +139,11 @@ phpmyadmin:5.2-apache
 ```
 - Más adelante veremos docker compose, que nos permite crear múltiples contenedores y redes de forma más sencilla y rápida.
 - Adicionalmente nos permite ver de manera visual los contenedores, redes y volúmenes que tenemos creados, así como sus relaciones.
+
+---
+
+## Bind Volumes
+- Los bind volumes nos permiten mapear un directorio de nuestro equipo a un directorio del contenedor
+- Tambien es posible entrar a la terminal interactiva del contenedor
+- Desde el contenedor haremos un pnpm install, esto se verá reflejado en nuestro equipo
+- El problema de esto es que no es tan rápido como hacerlo localmente, además de usar más recursos de nuestro equipo.
