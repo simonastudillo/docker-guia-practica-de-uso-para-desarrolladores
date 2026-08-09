@@ -88,3 +88,27 @@ phpmyadmin:5.2-apache
 ```
 - Solo si 2 contenedores están en la misma red, pueden comunicarse entre sí
 - Esto se hace usando el comando `network`
+
+---
+
+## Redes de contenedores
+- [Documentación oficial de redes de Docker](https://docs.docker.com/engine/network/tutorials/standalone/)
+- Crearemos nuestra propia red llamada `world-app`
+```bash
+docker network create world-app
+```
+- Para conectar un contenedor a una red, usamos el parámetro `--network <nombre_de_la_red>` al crear el contenedor
+- Otra forma de conectar un contenedor a una red es usando el comando `docker network connect <nombre_de_la_red> <nombre_del_contenedor>`
+```bash
+docker network connect world-app phpmyadmin
+```
+- Ahora conectamos tambien el contenedor de MariaDB a la red `world-app`
+```bash
+docker network connect world-app world-db
+```
+- Podemos verificar la red usando el comando `inspect` 
+```bash
+docker network inspect world-app
+```
+- Ahora nos conectamos a PHPMyAdmin desde el navegador usando la dirección `http://localhost:8080`
+- Para las credenciales de conexión, usamos el nombre del contenedor de MariaDB como servidor, en este caso `world-db`, y el usuario y contraseña que definimos al crear el contenedor de MariaDB.
