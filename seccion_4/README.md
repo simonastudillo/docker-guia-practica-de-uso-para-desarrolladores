@@ -136,3 +136,19 @@ volumes:
   postgres-db:
 ```
 - Esto creara un nuevo volumen llamado <nombre_del_proyecto>_postgres-db.
+
+---
+
+## Limpiar el docker compose y conectar volumen externo
+- Para usar un volumen externo debemos indicar el parámetro external: true
+```yaml
+volumes:
+  postgres-db:
+    external: true
+```
+- Hay algunos cambios que podemos hacer sin necesidad de eliminar el volumen o los contenedores, pero algunos cambios si requieren eliminar los contenedores y volver a crearlos, para esto usamos el comando:
+```bash
+docker-compose down
+```
+- Luego eliminamos el volumen manualmente
+- Por último, volvemos a ejecutar el comando docker-compose up -d y todo debería funcionar correctamente.
