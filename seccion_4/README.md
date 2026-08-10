@@ -152,3 +152,17 @@ docker-compose down
 ```
 - Luego eliminamos el volumen manualmente
 - Por último, volvemos a ejecutar el comando docker-compose up -d y todo debería funcionar correctamente.
+
+---
+
+## Bind Volumes - Docker Compose
+- Podemos usar bind volumes para montar un directorio de nuestro host en el contenedor
+```yaml
+volumes:
+  - ./postgresdb:/var/lib/postgresql/data
+```
+- Para pgAdmin es posible que en linux nos da error de permisos
+- Esto se soluciona con el comando:
+```bash
+sudo chown -R 5050:5050 ./pgadmin
+```
