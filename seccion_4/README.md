@@ -109,3 +109,14 @@ docker network connect postgres-net pgAdmin
 ```
 9. Conectar ambos contenedores
 10. Intentar el paso 4. de nuevo.
+
+---
+
+## Docker Compose - Multi Container Apps
+- Creamos el archivo `docker-compose.yaml`
+- La extensión puede ser .yml o .yaml, ambas son válidas.
+- Lo primero y lo más importante es definir la versión de docker-compose que vamos a usar
+- Luego definimos los servicios que vamos a usar, es importante tener cuidado con los espacios y tabulaciones, ya que es un archivo de configuración en formato YAML.
+- Dentro de services definimos cada uno de los servicios que vamos a usar, en este caso db donde indicaremos los parámetros de la imagen de postgres y pgAdmin donde indicaremos los parámetros de la imagen de pgadmin.
+- En pgAdmin agregaremos el parámetro de depends_on para indicar que depende del servicio db, esto es importante para que pgAdmin no intente conectarse a la base de datos antes de que esta esté lista.
+- [archivo docker-compose.yaml](./postgres-pgadmin/docker-compose.yaml)
