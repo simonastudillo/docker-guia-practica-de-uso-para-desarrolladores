@@ -120,3 +120,19 @@ docker network connect postgres-net pgAdmin
 - Dentro de services definimos cada uno de los servicios que vamos a usar, en este caso db donde indicaremos los parámetros de la imagen de postgres y pgAdmin donde indicaremos los parámetros de la imagen de pgadmin.
 - En pgAdmin agregaremos el parámetro de depends_on para indicar que depende del servicio db, esto es importante para que pgAdmin no intente conectarse a la base de datos antes de que esta esté lista.
 - [archivo docker-compose.yaml](./postgres-pgadmin/docker-compose.yaml)
+
+---
+
+## Correr, limpiar y otras consideraciones - Docker Compose
+- Para ejecutar el archivo docker-compose.yaml usamos el comando:
+```bash
+docker-compose up -d
+```
+- Al ejecutar este comando se nos indica que el atributo "version" está obsoleto, por lo que podemos eliminarlo del archivo docker-compose.yaml y volver a ejecutar el comando.
+- Al volver a ejecutar recibimos error "service "db" refers to undefined volume postgres-db: invalid compose project"
+- Este error es porque el volumen ya está creado y para asignarlo al servicio db debemos indicarlo en el archivo docker-compose.yaml en la sección de volumes
+```yaml
+volumes:
+  postgres-db:
+```
+- Esto creara un nuevo volumen llamado <nombre_del_proyecto>_postgres-db.
