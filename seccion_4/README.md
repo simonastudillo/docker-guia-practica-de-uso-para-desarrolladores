@@ -181,3 +181,10 @@ sudo chown -R 5050:5050 ./pgadmin
 - Podemos enviar comandos para levantar mongo con autenticación, esto lo hacemos agregando `command: [ '--auth' ]`
 - No se recomienda dejar las variables de entorno en el archivo `docker-compose.yaml`, ya que esto puede ser un riesgo de seguridad, es mejor usar el archivo .env para esto.
 - Para llamar a las variables de entorno desde el archivo .env usamos la sintaxis `${VARIABLE}` en el archivo `docker-compose.yaml`
+
+---
+
+## Multi-container app - Visor de Base de datos
+- Trabajaremos con monogo-express, que es un visor de base de datos para mongo
+- Modificaremos el docker-compose.yaml para agregar el servicio de mongo-express, este servicio depende del servicio de mongo, por lo que agregamos el parámetro `depends_on: - mongo`
+- Por seguridad se recomienda mapear la menor cantidad de puertos posibles, por lo que en este caso solo mapearemos el puerto 8081 del host al puerto 8081 del contenedor de mongo-express.
