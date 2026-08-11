@@ -188,3 +188,8 @@ sudo chown -R 5050:5050 ./pgadmin
 - Trabajaremos con monogo-express, que es un visor de base de datos para mongo
 - Modificaremos el docker-compose.yaml para agregar el servicio de mongo-express, este servicio depende del servicio de mongo, por lo que agregamos el parámetro `depends_on: - mongo`
 - Por seguridad se recomienda mapear la menor cantidad de puertos posibles, por lo que en este caso solo mapearemos el puerto 8081 del host al puerto 8081 del contenedor de mongo-express.
+
+---
+
+## Multi-container app - Aplicación de Nest
+- Trabajaremos con una aplicación de ejemplo en [Nest](https://hub.docker.com/r/klerith/pokemon-nest-app).
