@@ -193,3 +193,9 @@ sudo chown -R 5050:5050 ./pgadmin
 
 ## Multi-container app - Aplicación de Nest
 - Trabajaremos con una aplicación de ejemplo en [Nest](https://hub.docker.com/r/klerith/pokemon-nest-app).
+
+---
+
+## Código fuente de la sección
+- [Descargar código fuente de la sección 4](https://gist.github.com/Klerith/0df06c9aaafeff39e8a6129f6e7d35d9)
+- Hacemos limpieza de los contenedores, volumenes e imagenes
