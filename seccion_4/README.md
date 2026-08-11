@@ -173,3 +173,11 @@ sudo chown -R 5050:5050 ./pgadmin
 - Instalaremos mongo, mongo-express y aplicación de ejemplo en nodejs
 - Se recomienda ir paso a paso, primero instalar mongo, luego mongo-express y por último la aplicación de ejemplo en nodejs.
 - De esta forma evitamos errores de conexión y podemos ir probando cada uno de los servicios por separado.
+
+---
+
+## Variables de entorno - MongoDB
+- Por defecto docker toma las variables de entorno del archivo .env
+- Podemos enviar comandos para levantar mongo con autenticación, esto lo hacemos agregando `command: [ '--auth' ]`
+- No se recomienda dejar las variables de entorno en el archivo `docker-compose.yaml`, ya que esto puede ser un riesgo de seguridad, es mejor usar el archivo .env para esto.
+- Para llamar a las variables de entorno desde el archivo .env usamos la sintaxis `${VARIABLE}` en el archivo `docker-compose.yaml`
