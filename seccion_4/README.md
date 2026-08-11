@@ -166,3 +166,10 @@ volumes:
 ```bash
 sudo chown -R 5050:5050 ./pgadmin
 ```
+
+---
+
+## Multi-container app - Base de datos Mongo
+- Instalaremos mongo, mongo-express y aplicación de ejemplo en nodejs
+- Se recomienda ir paso a paso, primero instalar mongo, luego mongo-express y por último la aplicación de ejemplo en nodejs.
+- De esta forma evitamos errores de conexión y podemos ir probando cada uno de los servicios por separado.

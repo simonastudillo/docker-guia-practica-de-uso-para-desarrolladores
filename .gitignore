@@ -1,3 +1,4 @@
 .vscode/
 pgadmin/
 postgresdb/
+.env
